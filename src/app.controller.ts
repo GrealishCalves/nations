@@ -10,7 +10,8 @@ export class NationController {
   }
 
   @Post('/population')
-  getPopulation(@Body() year: string): Promise<Nation> {
-    return this.invokeDataService.getPopulation(year);
+  async getPopulation(@Body() year: string): Promise<Nation> {
+    const result = await this.invokeDataService.getPopulation(year);
+    return result;
   }
 }

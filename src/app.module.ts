@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { NationController } from './app.controller';
 import { InvokeDataService } from './app.service';
 import { OpenTelemetryModule } from '@metinseylan/nestjs-opentelemetry';
@@ -37,6 +37,6 @@ const spanProcessor = new SimpleSpanProcessor(jaegerExporter) as any;
     HttpModule,
   ],
   controllers: [NationController],
-  providers: [InvokeDataService],
+  providers: [InvokeDataService, Logger],
 })
 export class AppModule {}
